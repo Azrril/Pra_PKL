@@ -152,13 +152,14 @@ $angka = isset($_POST['angka']) ? (int)$_POST['angka'] : 1;
       font-size: 16px;
     }
 
-    footer {
-            background-color: #43d02b;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 30px;
-        }
+     footer {
+  width: 96.3vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
     
   </style>
 </head>
@@ -238,7 +239,6 @@ $total_akhir = ($qty * $harga) + $ongkir;
     }
 }
 ?>
-<a href="admin_dashboard.php" class="btn btn-secondary btn-back">← Kembali</a>
   <center><h2>Pembayaran</h2></center>
   <div class="container">
   <?php while($product = mysqli_fetch_object($result)) { ?> 

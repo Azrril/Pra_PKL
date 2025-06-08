@@ -39,8 +39,8 @@ if (!isset($_SESSION['username'])) {
         }
 
         .logo img {
-            height: 50px;
-            margin-right: 10px;
+            height: 100px;
+            margin-right: 50px;
         }
 
         nav ul {
@@ -188,12 +188,6 @@ if (!isset($_SESSION['username'])) {
             border-radius: 15px;
         }
 
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #4CAF50;
-            color: white;
-        }
 
             ul {
     list-style: none;
@@ -234,13 +228,23 @@ if (!isset($_SESSION['username'])) {
     display: block;
     }
 
+    footer {
+  width: 96.3vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <img src="img/logo zari.png" alt="Zari Petshop">
+            <img src="img/logo_zari.png" alt="Zari Petshop">
             <h2>ZARI PETSHOP</h2>
         </div>
         <nav>
@@ -281,44 +285,44 @@ if (!isset($_SESSION['username'])) {
             <a href="produk-whiskas.php"><img src="whiskas/logo_whiskas.png" alt="Whiskas"></a>
         </div>
     </section>
+        
+   
+    <!-- Footer -->
+<footer style="background-color: #4CAF50; padding: 20px 20px 20px 20px; font-family: Arial, sans-serif;">
+  <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
 
-    <section id="layanan" class="layanan">
-        <h3>Layanan</h3>
-        <div class="layanan-card">
-            <img src="bahan/1.png" alt="Layanan Grooming Kucing">
-            <img src="bahan/2.png" alt="Layanan Inap Kucing">
-            <img src="bahan/3.png" alt="Layanan Kesehatan Kucing">
-        </div>
-    </section>
+    <!-- Logo & Deskripsi -->
+    <div style="flex: 1; min-width: 250px;">
+      <img src="img/logo_zari.png" alt="Zari Petshop Logo" style="max-width: 200px; margin-bottom: 15px;">
+      <p style="font-size: 16px; line-height: 1.6;">
+        Zari Petshop bergerak dalam bidang retail petfood, aksesoris, kandang dan perlengkapan kebutuhan hewan kesayangan Anda.
+      </p>
+    </div>
 
-    <section id="kontak" class="kontak">
-        <h3>Kontak</h3>
-        <div class="kontak-content">
-            <div class="kontak-item">
-                <h4>Hubungi Kami
-                <a href="https://api.whatsapp.com/send/?phone=6287837148304&text&type=phone_number&app_absent=0">📱 WhatsApp: 087837148304</a>
-                <p><a href="https://api.whatsapp.com/send/?phone=6285816142460&text&type=phone_number&app_absent=0">☎️ Telp: 08561624280</a></p>
-                <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=ahdzaahdza911@gmail.com">✉️ Email: zaripetshop@gmail.com</a></p>
-                <p><a href="https://instagram.com/zaripetshop_pbg">📷 Instagram: zaripetshop_pbg</a></p>
-                <p><a href="https://www.facebook.com/profile.php?id=61575280174667">📘 Facebook: Zari Petshop</a></p>
-            </div>
-            <div class="kontak-map">
-                <h4>Visit Us!</h4>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d989.1475816443891!2d109.3393173!3d-7.3997151!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6559b9ff8d3795%3A0xa58daaef273f4e44!2sSMKN%201%20Purbalingga!5e0!3m2!1sen!2sid!4v1747127123588!5m2!1sen!2sid" width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
+    <!-- Hubungi Kami -->
+    <div style="flex: 1.2; min-width: 250px;">
+      <h3 style="color: #2d2b75; margin-bottom: 15px;">Hubungi Kami</h3>
+      <p style="margin: 8px 0;">📱 +62 858-1614-2460</p>
+      <p style="margin: 8px 0;">📧 zaripetshop_official@gmail.com</p>
+      <p style="margin: 8px 0;">📍 Jl. Mayor Jend. Sungkono No.34, Selabaya, Kec. Kalimanah, Kabupaten Purbalingga, Jawa Tengah 53371</p>
+    </div>
 
-    <section id="tentang" class="tentang">
-        <h3>Tentang Website Kami</h3>
-        <div class="tentang-content">
-            <img src="bahan/tentang.png" alt="Kucing Ilustrasi">
-        </div>
-    </section>
+    <!-- Social Media -->
+    <div style="flex: 0.8; min-width: 150px;">
+      <h3 style="color: #2d2b75; margin-bottom: 15px;">Social Media</h3>
+      <div style="font-size: 24px;">
+        <a href="https://instagram.com/zaripetshop_pbg" style="color: black; margin-right: 15px;"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61575280174667" style="color: black; margin-right: 15px;"><i class="fab fa-facebook-square"></i></a>
+        <a href="https://api.whatsapp.com/send/?phone=6287837148304&text&type=phone_number&app_absent=0" style="color: black;"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
 
-    <footer>
-        <p>&copy; <?php echo date('Y'); ?> Zari Petshop. All Rights Reserved.</p>
-    </footer>
+  </div>
+</footer>
+
+<!-- Tambahkan ini sebelum </body> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+
 
     <script>
   // Simulasi: anggap user berhasil login

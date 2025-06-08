@@ -26,8 +26,8 @@
         }
 
         .navbar-left img {
-            height: 40px;
-            margin-right: 10px;
+            height: 60px;
+            margin-right: 20px;
         }
 
         .navbar-left span {
@@ -185,13 +185,7 @@
             height: 100px;
         }
 
-        footer {
-            background-color: #43d02b;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 30px;
-        }
+        
         .btn-beli {
     background-color: #00aaff;
     color: white;
@@ -211,6 +205,15 @@
     transform: scale(0.95);
     box-shadow: none;
 }
+
+ footer {
+  width: 96.3vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
     </style>
 </head>
 <body>
@@ -224,13 +227,11 @@
     <!-- NAVBAR -->
     <div class="navbar">
         <div class="navbar-left">
-            <img src="img/logo zari.png" alt="Logo">
+            <img src="img/logo_zari.png" alt="Logo">
             <span>ZARI PETSHOP</span>
         </div>
         <div class="navbar-right">
             <a href="dashboard.php#produk">Produk</a>
-            <a href="dashboard.php#layanan">Layanan</a>
-            <a href="dashboard.php#kontak">Kontak</a>
             <a href="dashboard.php#tentang">Tentang</a>
         </div>
     </div>
@@ -262,20 +263,43 @@
             </div>
             <?php } ?>
         </div>
-        
+        <br>
 
-        <div class="keunggulan">
-            <img src="bahan/bolt kata kata.png" alt="">
-            <div>
-                <h3>BOLT - Best Care For Your Pets</h3>
-                <p>Jangan biarkan kucing kesayangan Anda melewatkan makanan berkualitas tinggi yang bergizi lengkap dari BOLT. Penuh manfaat seperti dukungan imun, kekuatan tulang, bulu sehat, dan energi ekstra. Cobalah sekarang dan rasakan perubahan nyata pada kucing kesayangan Anda!</p>
-            </div>
-        </div>
+        <!-- Footer -->
+<footer style="background-color: #4CAF50; padding: 40px 20px 50px 20px; font-family: Arial, sans-serif;">
+  <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+
+    <!-- Logo & Deskripsi -->
+    <div style="flex: 1; min-width: 250px;">
+      <img src="img/logo_zari.png" alt="Zari Petshop Logo" style="max-width: 200px; margin-bottom: 15px;">
+      <p style="font-size: 16px; line-height: 1.6;">
+        Zari Petshop bergerak dalam bidang retail petfood, aksesoris, kandang dan perlengkapan kebutuhan hewan kesayangan Anda.
+      </p>
     </div>
 
-    <footer>
-        &copy; 2025 Zari Petshop. All rights reserved.
-    </footer>
+    <!-- Hubungi Kami -->
+    <div style="flex: 1.2; min-width: 250px;">
+      <h3 style="color: #2d2b75; margin-bottom: 15px;">Hubungi Kami</h3>
+      <p style="margin: 8px 0;">📱 +62 858-1614-2460</p>
+      <p style="margin: 8px 0;">📧 zaripetshop_official@gmail.com</p>
+      <p style="margin: 8px 0;">📍 Jl. Mayor Jend. Sungkono No.34, Selabaya, Kec. Kalimanah, Kabupaten Purbalingga, Jawa Tengah 53371</p>
+    </div>
+
+    <!-- Social Media -->
+    <div style="flex: 0.8; min-width: 150px;">
+      <h3 style="color: #2d2b75; margin-bottom: 15px;">Social Media</h3>
+      <div style="font-size: 24px;">
+        <a href="https://instagram.com/zaripetshop_pbg" style="color: black; margin-right: 15px;"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61575280174667" style="color: black; margin-right: 15px;"><i class="fab fa-facebook-square"></i></a>
+        <a href="https://api.whatsapp.com/send/?phone=6287837148304&text&type=phone_number&app_absent=0" style="color: black;"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Tambahkan ini sebelum </body> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 
 </body>
 </html>

@@ -113,7 +113,7 @@ $total_bayar = ($data['harga_produk'] * $data['Qty']) + $data['harga_pengiriman'
     <?php if (!$data['bukti_pembayaran']): ?>
         <!-- Jika belum upload -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Bayar
+            Kirim Bukti Pembayaran
         </button>
     <?php else: ?>
         <!-- Jika sudah upload -->
