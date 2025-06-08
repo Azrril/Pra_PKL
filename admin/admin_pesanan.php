@@ -107,9 +107,11 @@ $result = mysqli_query($koneksi, $query);
             </tr>
         </thead>
         <tbody>
-            <?php while($row = mysqli_fetch_assoc($result)) { ?>
+            <?php 
+            $jumlah=1;
+            while($row = mysqli_fetch_assoc($result)) { ?>
                 <tr>
-                    <td><?= $row['id_pembayaran'] ?></td>
+                    <td><?= $jumlah ?></td>
                     <td><?= $row['nama_pelanggan'] ?></td>
                     <td><?= $row['alamat'] ?></td>
                     <td>
@@ -130,7 +132,7 @@ $result = mysqli_query($koneksi, $query);
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="labelBukti<?= $row['id_pembayaran'] ?>">Bukti Pembayaran - ID <?= $row['id_pembayaran'] ?></h5>
+        <h5 class="modal-title" id="labelBukti<?= $row['id_pembayaran'] ?>">Bukti Pembayaran - ID <?= $jumlah ?></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Tutup">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -146,7 +148,7 @@ $result = mysqli_query($koneksi, $query);
 </div>
 
 
-                    </td>
+                    </td>  <?php $jumlah++; ?>
                     <td>
     <select class="form-control status-select" data-id="<?= $row['id_pembayaran'] ?>">
         <option value="pending" <?= $row['status'] == 'pending' ? 'selected' : '' ?>>Pending</option>

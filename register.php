@@ -148,6 +148,9 @@ include "koneksi.php";
             <label for="email">Email</label>
             <input type="text" name="email" id="email">
 
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+
             <label for="password">Password</label>
             <input type="password" name="password" id="password">
 

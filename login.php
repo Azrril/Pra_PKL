@@ -146,7 +146,7 @@ include "koneksi.php";
         <form action="proses_login.php" method="post">
 
             <label for="email">Username</label>
-            <input type="text" name="username" id="email">
+            <input type="text" name="username" id="username">
 
             <label for="password">Password</label>
             <input type="password" name="password" id="password">

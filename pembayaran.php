@@ -196,7 +196,15 @@ session_start(); // kalau pakai session login
 require './koneksi.php';
 
 if (isset($_POST['submit_bayar'])) {
-    $id_user = 1; // asumsikan sudah login
+    session_start();
+$id_user = $_SESSION['id_user'] ?? 0;
+
+if ($id_user == 0) {
+    // jika user belum login, redirect ke login atau hentikan proses
+    header("Location: login.php");
+    exit();
+}
+
     $id_produk = $_POST['id_produk'];
     $qty = $_POST['angka'];
     $nama_lengkap = $_POST['nama_lengkap'];
@@ -230,7 +238,7 @@ $total_akhir = ($qty * $harga) + $ongkir;
     }
 }
 ?>
-
+<a href="admin_dashboard.php" class="btn btn-secondary btn-back">← Kembali</a>
   <center><h2>Pembayaran</h2></center>
   <div class="container">
   <?php while($product = mysqli_fetch_object($result)) { ?> 

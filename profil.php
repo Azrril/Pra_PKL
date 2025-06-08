@@ -154,9 +154,9 @@ body {
       </div>
       <div class="info-group">
         <label>Password:</label>
-        <p><?= htmlspecialchars($user['password']) ?></p>
+        <p>********</p>
       </div>
-      <a href="edit-profile.php" class="edit-btn">Edit Profile</a>
+      <a href="edit-profil.php" class="edit-btn">Edit Profile</a>
     </div>
   </div>
 </body>

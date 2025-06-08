@@ -97,30 +97,71 @@
             max-width: 500px;
         }
 
-        .produk-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
+        h3.produk-container {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
 
-        .produk-item {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+/* Kontainer produk */
+.produk-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
 
-        .produk-item img {
-            height: 150px;
-        }
+/* Kartu tiap produk */
+.produk-item {
+    width: 200px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
 
-        .produk-item p {
-            margin: 5px 0;
-        }
+.produk-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Gambar produk */
+.produk-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* agar gambar tidak lonjong */
+    border-radius: 8px;
+}
+
+/* Nama dan harga */
+.produk-item p {
+    margin: 10px 0 5px;
+    font-size: 15px;
+}
+
+.produk-item p strong {
+    color: #28a745;
+    font-size: 16px;
+}
+
+/* Tombol beli */
+.btn-beli {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-beli:hover {
+    background-color: #0056b3;
+}
 
         .btn-beli {
             background-color: #00aaff;
@@ -143,6 +184,25 @@
         .keunggulan img {
             height: 100px;
         }
+        .btn-beli {
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-beli:hover {
+    background-color: #008ecc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-beli:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
 
         footer {
             background-color: #43d02b;

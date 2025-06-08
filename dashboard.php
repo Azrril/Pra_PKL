@@ -89,17 +89,45 @@ if (!isset($_SESSION['username'])) {
         }
 
         .brand-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
+    overflow-x: auto;
+    gap: 10;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none; /* IE & Edge */
+    scrollbar-width: none; /* Firefox */
+    display: flex;
+    justify-content: center;
+}
 
-        .brand-container img {
-            width: 100px;
-        }
+.brand-container::-webkit-scrollbar {
+    display: flex;
+    justify-content: center;
+}
+
+.brand-container a {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    padding: 0.5rem;
+    background-color: white;
+    margin: 0 20px;
+}
+
+.brand-container a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.brand-container a.clicked {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+.brand-container img {
+    height: 100px;
+    object-fit: contain;
+}
 
         .layanan-card {
             display: flex;
@@ -238,9 +266,9 @@ if (!isset($_SESSION['username'])) {
     </header>
 
     <section class="hero">
-        <img src="img/banner.jpg" alt="banner" class="hero-image">
+        <img src="img/banner.png" alt="banner" class="hero-image">
         <h2>Welcome to ZARI PETSHOP</h2>
-        <p>Tersedia diskon hingga <strong>20%</strong></p>
+        <p><strong>Tersedia Lebih Dari 30 Produk Berkualitas Di Etalase Kami</strong></p>
         <a href="produk_bolt.php" class="button">SHOP NOW</a>
     </section>
 
@@ -260,9 +288,6 @@ if (!isset($_SESSION['username'])) {
             <img src="bahan/1.png" alt="Layanan Grooming Kucing">
             <img src="bahan/2.png" alt="Layanan Inap Kucing">
             <img src="bahan/3.png" alt="Layanan Kesehatan Kucing">
-        </div>
-        <div class="promo">
-            <img src="bahan/promo.png" alt="Promo Member Setia">
         </div>
     </section>
 
@@ -307,6 +332,14 @@ if (!isset($_SESSION['username'])) {
     }
   }
 </script>
+  <script>
+    document.querySelectorAll('.brand-container a').forEach(link => {
+      link.addEventListener('click', () => {
+        link.classList.add('clicked');
+        setTimeout(() => link.classList.remove('clicked'), 300);
+      });
+    });
+  </script>
 
 </body>
 </html>
