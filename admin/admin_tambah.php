@@ -147,11 +147,42 @@ $produk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC")
         </div>
         <nav>
             <ul>
+                <li><a href="admin_dashboard.php">Dashboard</a></li>
                 <li><a href="logout.php">Logout</a></li>
                 </div>
             </ul>
         </nav>
     </header>
+    <!-- Form Tambah Produk -->
+<div class="form-tambah">
+    <h3>Tambahkan Produk Baru</h3>
+    <form method="POST" enctype="multipart/form-data">
+        <id_brand>Nama Produk</id_brand>
+        <input type="text" name="nama" required>
+
+        <id_brand>Deskripsi</id_brand>
+        <input type="text" name="deskripsi" required>
+
+        <id_brand>Harga Produk</id_brand>
+        <input type="number" name="harga" required>
+
+        <id_brand>Stok</id_brand>
+        <input type="number" name="stok" required>
+
+        <id_brand>Brand</id_brand>
+        <select name="id_brand" required>
+            <option value="1">Bolt</option>
+            <option value="2">Whiskas</option>
+            <option value="3">Hills</option>
+            <option value="4">Friskies</option>
+        </select>
+
+        <id_brand>Gambar Produk</id_brand>
+        <input type="file" name="gambar" accept="image/*">
+
+        <a href="admin_proses_tambah.php"><button type="submit" class="btn">Tambahkan</button></a>
+    </form>
+</div>
 <div class="container">
     <h2>Produk Tersedia</h2>
     
@@ -194,36 +225,6 @@ $produk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC")
             <?php } ?>
         </tbody>
     </table>
-<!-- Form Tambah Produk -->
-<div class="form-tambah">
-    <h3>Tambahkan Produk Baru</h3>
-    <form method="POST" enctype="multipart/form-data">
-        <id_brand>Nama Produk</id_brand>
-        <input type="text" name="nama" required>
-
-        <id_brand>Deskripsi</id_brand>
-        <input type="text" name="deskripsi" required>
-
-        <id_brand>Harga Produk</id_brand>
-        <input type="number" name="harga" required>
-
-        <id_brand>Stok</id_brand>
-        <input type="number" name="stok" required>
-
-        <id_brand>Brand</id_brand>
-        <select name="id_brand" required>
-            <option value="1">Bolt</option>
-            <option value="2">Whiskas</option>
-            <option value="3">Hills</option>
-            <option value="4">Friskies</option>
-        </select>
-
-        <id_brand>Gambar Produk</id_brand>
-        <input type="file" name="gambar" accept="image/*">
-
-        <a href="admin_proses_tambah.php"><button type="submit" class="btn">Tambahkan</button></a>
-    </form>
-</div>
 
 <div class="footer">
     © 2025 Zari Petshop. All rights reserved.

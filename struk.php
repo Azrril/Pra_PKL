@@ -33,7 +33,7 @@ $total_bayar = ($data['harga_produk'] * $data['Qty']) + $data['harga_pengiriman'
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
  <?php $back_link = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'produk.php'; ?>
- <a href="' . $back_link . '">← Kembali</a> 
+ <a href="pembayaran.php">← Kembali</a> 
  <title>Struk Pembayaran</title>
     <style>
         body {
@@ -107,7 +107,6 @@ $total_bayar = ($data['harga_produk'] * $data['Qty']) + $data['harga_pengiriman'
 </div>
 
 <div style="text-align:center; margin-top: 20px;">
-    <button onclick="window.print()">🖨 Cetak Struk</button>
     <!-- Button trigger modal -->
 
     <?php if (!$data['bukti_pembayaran']): ?>

@@ -20,82 +20,82 @@ $user = mysqli_fetch_assoc($query);
   <title>My Profile</title>
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <style>
-body {
-  background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('img/BG.png');
-  background-size: cover;         /* ⬅️ ini penting: agar gambar menutupi layar dengan proporsional */
-  background-repeat: no-repeat;
-  background-position: center;    /* ⬅️ agar posisi fokus di tengah */
-  height: 100dvh;                  /* ⬅️ pastikan tingginya 1 layar penuh */
-  margin: 0;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-}
+      body {
+        background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('img/BG.png');
+        background-size: cover;         /* ⬅️ ini penting: agar gambar menutupi layar dengan proporsional */
+        background-repeat: no-repeat;
+        background-position: center;    /* ⬅️ agar posisi fokus di tengah */
+        height: 100dvh;                  /* ⬅️ pastikan tingginya 1 layar penuh */
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
 
 
-    .profile-container {
-      background-color:rgb(250, 167, 33);
-      color: white;
-      width: 600px;
-      margin: 50px auto;
-      padding: 30px;
-      display: flex;
-      gap: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
+      .profile-container {
+        background-color:rgb(250, 167, 33);
+        color: white;
+        width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        display: flex;
+        gap: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      }
 
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      background-color: white;
-      border-radius: 5px;
-      overflow: hidden;
-    }
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        background-color: white;
+        border-radius: 5px;
+        overflow: hidden;
+      }
 
-    .profile-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-    .profile-info {
-      flex: 1;
-    }
+      .profile-info {
+        flex: 1;
+      }
 
-    .info-group {
-      margin-bottom: 15px;
-    }
+      .info-group {
+        margin-bottom: 15px;
+      }
 
-    .info-group label {
-      font-weight: bold;
-      display: block;
-      font-size: 14px;
-    }
+      .info-group label {
+        font-weight: bold;
+        display: block;
+        font-size: 14px;
+      }
 
-    .info-group p {
-      margin: 5px 0 0 0;
-    }
+      .info-group p {
+        margin: 5px 0 0 0;
+      }
 
-    .edit-btn {
-      background-color: #00aaff;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
-    }
+      .edit-btn {
+        background-color: #00aaff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        text-decoration: none;
+      }
 
-    .edit-btn:hover {
-      background-color: #008fcc;
-    }
-    .navbar {
-            background-color: #4CAF50;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .edit-btn:hover {
+        background-color: #008fcc;
+      }
+      .navbar {
+              background-color: #4CAF50;
+              padding: 20px 40px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+          }
 
         .navbar-left {
             display: flex;
