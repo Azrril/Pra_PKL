@@ -62,9 +62,12 @@ $result = mysqli_query($koneksi, $query);
             </tr>
         </thead>
         <tbody>
-            <?php while($user = mysqli_fetch_assoc($result)) { ?>
+            <?php 
+            $nomor = 1; // Inisialisasi variabel counter
+            while($user = mysqli_fetch_assoc($result)) { 
+            ?>
                 <tr>
-                    <td><?= $user['id_user'] ?></td>
+                    <td><?= $nomor ?></td>
                     <td><?= $user['username'] ?></td>
                     <td><?= $user['email'] ?></td>
                     <td><?= $user['password'] ?></td>
@@ -73,7 +76,10 @@ $result = mysqli_query($koneksi, $query);
                         <a href="hapus_user.php?id_user=<?= $user['id_user'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus pengguna ini?')">Hapus</a>
                     </td>
                 </tr>
-            <?php } ?>
+            <?php 
+            $nomor++; // Increment counter untuk baris berikutnya
+            } 
+            ?>
         </tbody>
     </table>
 </div>

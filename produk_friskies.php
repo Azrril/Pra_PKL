@@ -291,19 +291,33 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#produk">Produk</a>
+          <a class="nav-link" href="dashboard.php">Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#tentang">Tentang</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="akunDropdown" role="button" data-bs-toggle="dropdown">
-            Akun
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="Profil.php">Edit Profil</a></li>
-            <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
-          </ul>
+                 <?php
+        if (isset($_SESSION['username'])) {
+          // Sudah login
+          echo '
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="akunDropdown" role="button" data-bs-toggle="dropdown">
+              Akun
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="Profil.php">Profil</a></li>
+              <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+            </ul>
+          </li>';
+        } else {
+          // Belum login
+          echo '
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+          </li>';
+        }
+        ?>
         </li>
       </ul>
     </div>

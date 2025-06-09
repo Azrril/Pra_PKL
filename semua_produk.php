@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require 'koneksi.php';
     $sql = 'SELECT * FROM produk WHERE id_brand = "1"';
     $result = mysqli_query($koneksi, $sql) or die(mysqli_error($koneksi));
@@ -330,23 +331,40 @@
             <li><a class="dropdown-item" href="produk-whiskas.php" onclick="filterBrand('whiskas')">Whiskas</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="akunDropdown" role="button" data-bs-toggle="dropdown">
-            Akun
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="Profil.php">Edit Profil</a></li>
-            <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
-          </ul>
+                <li class="nav-item dropdown">
+                 <?php
+        if (isset($_SESSION['username'])) {
+          // Sudah login
+          echo '
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="akunDropdown" role="button" data-bs-toggle="dropdown">
+              Akun
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="Profil.php">Profil</a></li>
+              <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+            </ul>
+          </li>';
+        } else {
+          // Belum login
+          echo '
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+          </li>';
+        }
+        ?>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<br>
+<br>
+
 
 <!-- BRAND FILTER -->
 <div class="brand-filter" id="produk">
-  <h2><strong><center>Pilih Brand Favorit Anda</center></strong></h2>
+  <h2><strong><center>Pilih Brand Dan Produk Favorit Anda</center></strong></h2>
 </div>
 <br>
 <br>

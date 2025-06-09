@@ -324,7 +324,7 @@ $result = mysqli_query($koneksi, $query);
             ?>
                 <div class="pesanan-card">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h5>Pesanan #<?= $row['id_pembayaran'] ?></h5>
+                        <h5>Pesanan</h5>
                         <span class="status-badge status-<?= $status_class ?>">
                             <?= ucfirst($row['status']) ?>
                         </span>
@@ -391,7 +391,7 @@ $result = mysqli_query($koneksi, $query);
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Bukti Pembayaran - Pesanan #<?= $row['id_pembayaran'] ?></h5>
+                                <h5 class="modal-title">Bukti Pembayaran</h5>
                                 <button type="button" class="close" data-dismiss="modal">
                                     <span>&times;</span>
                                 </button>

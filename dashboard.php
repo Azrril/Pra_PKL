@@ -2,10 +2,6 @@
 session_start();
 include "koneksi.php";
 
-if (!isset($_SESSION['username'])) {
-    header("Location:login.php?AndaBelumLogin");
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -253,23 +249,37 @@ if (!isset($_SESSION['username'])) {
         <li class="nav-item">
           <a class="nav-link" href="#tentang">Tentang</a>
         </li>
-         <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="pesanan.php">Pesanan</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="akunDropdown" role="button" data-bs-toggle="dropdown">
-            Akun
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="Profil.php">Edit Profil</a></li>
-            <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
-          </ul>
-        </li>
+
+        <?php
+        if (isset($_SESSION['username'])) {
+          // Sudah login
+          echo '
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="akunDropdown" role="button" data-bs-toggle="dropdown">
+              Akun
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="Profil.php">Profil</a></li>
+              <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+            </ul>
+          </li>';
+        } else {
+          // Belum login
+          echo '
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+          </li>';
+        }
+        ?>
       </ul>
     </div>
   </div>
 </nav>
 </header>
+
 <br>
 <br>
 

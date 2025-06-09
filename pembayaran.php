@@ -1,6 +1,11 @@
 <?php
-session_start(); // kalau pakai session login
-require 'koneksi.php';
+session_start();
+require "koneksi.php";
+
+if (!isset($_SESSION['id_user'])) {
+    header("Location: login.php");
+    exit;
+}
 
 // PROSES FORM SUBMIT - HARUS DI PALING ATAS SEBELUM HTML
 if (isset($_POST['submit_bayar'])) {
@@ -454,7 +459,7 @@ $resultPembayaran = mysqli_query($koneksi, $queryPembayaran) or die(mysqli_error
             Akun
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="Profil.php">Edit Profil</a></li>
+            <li><a class="dropdown-item" href="Profil.php">Profil</a></li>
             <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
           </ul>
         </li>
