@@ -28,6 +28,9 @@ $result = mysqli_query($koneksi, $query);
     <title>Admin - Pesanan Masuk</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
+                  *{
+      font-weight: bold;
+    }
         header {
             display: flex;
             justify-content: space-between;
@@ -47,6 +50,34 @@ $result = mysqli_query($koneksi, $query);
             margin-right: 10px;
         }
 
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .dashboard-card {
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
         nav ul {
             list-style: none;
             display: flex;

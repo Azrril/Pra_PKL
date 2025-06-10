@@ -13,6 +13,9 @@ $result = mysqli_query($koneksi, $query);
     <title>Admin - Data Pengguna</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <style>
+                  *{
+      font-weight: bold;
+    }
         body {
             background-color: #f8f9fa;
             font-family: 'Segoe UI', sans-serif;

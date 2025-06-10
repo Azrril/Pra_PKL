@@ -27,6 +27,9 @@ $data = mysqli_fetch_assoc($result);
     <title>Edit Produk</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <style>
+                  *{
+      font-weight: bold;
+    }
         .container {
             margin-top: 40px;
             max-width: 600px;

@@ -62,18 +62,21 @@ $produk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC")
     <meta charset="UTF-8">
     <title>Admin - Zari Petshop</title>
     <style>
+                  *{
+      font-weight: bold;
+    }
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f5f5f5;
         }
 
-         header {
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: #4CAF50;
-            padding: 10px 20px;
+            padding: 1px 20px;
             color: white;
         }
 
@@ -85,6 +88,39 @@ $produk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC")
         .logo img {
             height: 50px;
             margin-right: 10px;
+        }
+        
+        h2 {
+            font-size: 30px;
+        }
+    
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .dashboard-card {
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         nav ul {
