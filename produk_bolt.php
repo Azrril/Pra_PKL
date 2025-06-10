@@ -11,6 +11,9 @@ include"koneksi.php";
   <title>Zari Petshop - BOLT</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 <style>
+            *{
+      font-weight: bold;
+    }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -299,7 +302,7 @@ $result = mysqli_query($koneksi, $sql) or die(mysqli_error($koneksi));
           <a class="nav-link" href="dashboard.php">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#tentang">Tentang</a>
+          <a class="nav-link" href="dashboard.php#tentang">Tentang</a>
         </li>
         <li class="nav-item dropdown">
                  <?php

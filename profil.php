@@ -3,10 +3,10 @@ session_start();
 include 'koneksi.php'; // koneksi ke database
 
 // Cek apakah user sudah login
-// if (!isset($_SESSION['id_user'])) {
-//     header("Location: login.php");
-//     exit();
-// }
+if (!isset($_SESSION['id_user'])) {
+    header("Location: login.php");
+    exit();
+}
 
 // Handle update password
 if ($_POST && isset($_POST['update_password'])) {
@@ -61,6 +61,9 @@ $user = mysqli_fetch_assoc($query);
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+                  *{
+      font-weight: bold;
+    }
         body {
             background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('img/BG.png');
             background-size: cover;

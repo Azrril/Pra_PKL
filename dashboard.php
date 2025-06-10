@@ -12,6 +12,9 @@ include "koneksi.php";
     <title>Zari Petshop</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <style>
+      *{
+        font-weight: bold;
+      }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -308,6 +311,7 @@ include "koneksi.php";
 <br>
 
 <!-- FOOTER -->
+ <section id="tentang" class="tentang">
 <footer>
   <div>
     <div>
@@ -332,6 +336,7 @@ include "koneksi.php";
     </div>
   </div>
 </footer>
+</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 
