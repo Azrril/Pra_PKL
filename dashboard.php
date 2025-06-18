@@ -82,15 +82,15 @@ include "koneksi.php";
             overflow-x: auto;
             padding: 10px 0;
             scroll-snap-type: x mandatory;
-            -ms-overflow-style: none; /* IE & Edge */
-            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
             display: flex;
             justify-content: center;
             gap: 20px;
         }
 
         .custom-navbar {
-            background-color: #4CAF50 !important; /* warna hijau yang kamu mau */
+            background-color: #4CAF50 !important; 
           }
 
           .custom-navbar .nav-link,
@@ -104,7 +104,7 @@ include "koneksi.php";
           }
 
           .custom-navbar .dropdown-menu {
-            background-color: #4CAF50; /* dropdown juga hijau */
+            background-color: #4CAF50; /* dropdown hijau */
           }
 
           .custom-navbar .dropdown-item {
@@ -124,8 +124,8 @@ include "koneksi.php";
             overflow-x: auto;
             padding: 10px 0;
             scroll-snap-type: x mandatory;
-            -ms-overflow-style: none; /* IE & Edge */
-            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -343,7 +343,7 @@ include "koneksi.php";
 <script>
   // Simulasi: anggap user berhasil login
   const isLoggedIn = true; // Ganti sesuai kondisi sesungguhnya
-  const userName = "profil"; // Atau ambil dari session, AJAX, dll
+  const userName = "profil"; 
 
   if (isLoggedIn) {
     const loginBtn = document.getElementById("login-btn");

@@ -178,7 +178,7 @@ $produk = mysqli_query($koneksi, "SELECT * FROM produk ORDER BY id_produk DESC")
 
 <header>
         <div class="logo">
-            <a href="admin_dashboard.php"><img src="../img/logo zari.png" alt="Zari Petshop"></a>
+            <a href="admin_dashboard.php"><img src="../img/logo_zari.png" alt="Zari Petshop"></a>
             <h2>ZARI PETSHOP - Admin</h2>
         </div>
         <nav>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'koneksi.php'; // sesuaikan path koneksi
+include 'koneksi.php'; 
 
 // Cek apakah user sudah login
 if (!isset($_SESSION['id_user'])) {
@@ -109,15 +109,15 @@ $result = mysqli_query($koneksi, $query);
             overflow-x: auto;
             padding: 10px 0;
             scroll-snap-type: x mandatory;
-            -ms-overflow-style: none; /* IE & Edge */
-            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
             display: flex;
             justify-content: center;
             gap: 20px;
         }
 
         .custom-navbar {
-            background-color: #4CAF50 !important; /* warna hijau yang kamu mau */
+            background-color: #4CAF50 !important; 
           }
 
           .custom-navbar .nav-link,
@@ -131,7 +131,7 @@ $result = mysqli_query($koneksi, $query);
           }
 
           .custom-navbar .dropdown-menu {
-            background-color: #4CAF50; /* dropdown juga hijau */
+            background-color: #4CAF50; /* dropdown hijau */
           }
 
           .custom-navbar .dropdown-item {
@@ -322,12 +322,12 @@ $result = mysqli_query($koneksi, $query);
                 elseif ($row['status'] == 'di kirim') $progress = 75;
                 elseif ($row['status'] == 'di terima') $progress = 100;
                 
-                // Ganti spasi dengan underscore untuk class CSS
+                
                 $status_class = str_replace(' ', '', $row['status']);
             ?>
                 <div class="pesanan-card">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h5>Pesanan</h5>
+                        <h5>Pesanan (<strong><?= $row['tanggal'] ?></strong>)</h5>
                         <span class="status-badge status-<?= $status_class ?>">
                             <?= ucfirst($row['status']) ?>
                         </span>
@@ -373,17 +373,21 @@ $result = mysqli_query($koneksi, $query);
                         </div>
                         
                         <div>
-                            <?php if ($row['status'] == 'di kirim') { ?>
-                                <button class="btn btn-success btn-sm" onclick="konfirmasiTerima(<?= $row['id_pembayaran'] ?>)">
-                                    Konfirmasi Diterima
-                                </button>
-                            <?php } ?>
                             
-                            <?php if ($row['bukti_pembayaran']) { ?>
-                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalBukti<?= $row['id_pembayaran'] ?>">
-                                    Lihat Bukti Bayar
-                                </button>
-                            <?php } ?>
+<?php if ($row['bukti_pembayaran']) { ?>
+    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalBukti<?= $row['id_pembayaran'] ?>">
+        Lihat Bukti Bayar
+    </button>
+    <a href="cetak_struk.php?id_pembayaran=<?= $row['id_pembayaran'] ?>" target="_blank" class="btn btn-success btn-sm ml-2">
+        Cetak Struk
+    </a>
+<?php } else { ?>
+    <a href="struk.php?id_pembayaran=<?= $row['id_pembayaran'] ?>" class="btn btn-warning btn-sm">
+        Bayar Sekarang
+    </a>
+<?php } ?>
+
+
                         </div>
                     </div>
                 </div>

@@ -70,7 +70,7 @@ if (!isset($_SESSION['username'])) {
 <body>
     <header>
         <div class="logo">
-            <a href="admin_dashboard.php"><img src="../img/logo zari.png" alt="Zari Petshop"></a>
+            <a href="admin_dashboard.php"><img src="../img/logo_zari.png" alt="Zari Petshop"></a>
             <h2>ZARI PETSHOP - Admin</h2>
         </div>
         <nav>
@@ -92,6 +92,17 @@ if (!isset($_SESSION['username'])) {
                         <h5 class="card-title">Kelola Produk</h5>
                         <p class="card-text">Tambahkan, edit, atau hapus produk.</p>
                         <a href="admin_tambah.php" class="btn btn-success">Masuk</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card dashboard-card">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-box-archive" style="font-size: 5rem"></i>
+                        <h5 class="card-title">Laporan</h5>
+                        <p class="card-text">Laporan Hasil Penjualan Di Zari Petsho</p>
+                        <a href="laporan.php" class="btn btn-success">Masuk</a>
                     </div>
                 </div>
             </div>

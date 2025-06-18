@@ -1,5 +1,5 @@
 <?php
-include '../koneksi.php'; // sesuaikan path koneksi
+include '../koneksi.php';
 
 $query = "
 SELECT 
@@ -113,7 +113,7 @@ $result = mysqli_query($koneksi, $query);
 <body>
     <header>
         <div class="logo">
-            <a href="admin_dashboard.php"><img src="../img/logo zari.png" alt="Zari Petshop"></a>
+            <a href="admin_dashboard.php"><img src="../img/logo_zari.png" alt="Zari Petshop"></a>
             <h2>ZARI PETSHOP - Admin</h2>
         </div>
         <nav>
@@ -156,28 +156,33 @@ $result = mysqli_query($koneksi, $query);
                     <td>
                      <span>Rp. <?= number_format($row['total_akhir'], 0, ',', '.') ?></span>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBukti<?= $row['id_pembayaran'] ?>">
-    Lihat Bukti Pembayaran
-</button>
+<?php if (!empty($row['bukti_pembayaran'])): ?>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBukti<?= $row['id_pembayaran'] ?>">
+        Lihat Bukti Pembayaran
+    </button>
 
-<div class="modal fade" id="modalBukti<?= $row['id_pembayaran'] ?>" tabindex="-1" role="dialog" aria-labelledby="labelBukti<?= $row['id_pembayaran'] ?>" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="labelBukti<?= $row['id_pembayaran'] ?>">Bukti Pembayaran - ID <?= $jumlah ?></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Tutup">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center">
-        <img src="../Bukti_pembayaran/<?= $row['bukti_pembayaran'] ?>" alt="Bukti Pembayaran" style="max-width:100%; height:auto;">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+    <div class="modal fade" id="modalBukti<?= $row['id_pembayaran'] ?>" tabindex="-1" role="dialog" aria-labelledby="labelBukti<?= $row['id_pembayaran'] ?>" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="labelBukti<?= $row['id_pembayaran'] ?>">Bukti Pembayaran - ID <?= $jumlah ?></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Tutup">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <img src="../Bukti_pembayaran/<?= $row['bukti_pembayaran'] ?>" alt="Bukti Pembayaran" style="max-width:100%; height:auto;">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+<?php else: ?>
+    <span class="text-danger">Belum dibayar</span>
+<?php endif; ?>
+
 
 
                     </td>  <?php $jumlah++; ?>
@@ -212,7 +217,7 @@ $result = mysqli_query($koneksi, $query);
                     status: status
                 },
                 success: function(response) {
-                    alert(response); // Bisa diganti dengan notifikasi lain
+                    alert(response); 
                 },
                 error: function() {
                     alert('Terjadi kesalahan saat mengupdate status.');

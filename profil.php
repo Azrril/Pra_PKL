@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'koneksi.php'; // koneksi ke database
+include 'koneksi.php'; 
 
 // Cek apakah user sudah login
 if (!isset($_SESSION['id_user'])) {
@@ -13,7 +13,7 @@ if ($_POST && isset($_POST['update_password'])) {
     $current_password = $_POST['current_password'];
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
-    $id_user = $_SESSION['id_user']; // Sesuaikan dengan session Anda
+    $id_user = $_SESSION['id_user']; 
     
     // Validasi
     if (empty($current_password) || empty($new_password) || empty($confirm_password)) {

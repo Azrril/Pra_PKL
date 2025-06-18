@@ -80,7 +80,7 @@ $result = mysqli_query($koneksi, $query);
                     </td>
                 </tr>
             <?php 
-            $nomor++; // Increment counter untuk baris berikutnya
+            $nomor++; 
             } 
             ?>
         </tbody>

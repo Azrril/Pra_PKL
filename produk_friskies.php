@@ -76,15 +76,15 @@
             overflow-x: auto;
             padding: 10px 0;
             scroll-snap-type: x mandatory;
-            -ms-overflow-style: none; /* IE & Edge */
-            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; 
+            scrollbar-width: none;
             display: flex;
             justify-content: center;
             gap: 20px;
         }
 
         .custom-navbar {
-            background-color: #4CAF50 !important; /* warna hijau yang kamu mau */
+            background-color: #4CAF50 !important; 
           }
 
           .custom-navbar .nav-link,
@@ -98,7 +98,7 @@
           }
 
           .custom-navbar .dropdown-menu {
-            background-color: #4CAF50; /* dropdown juga hijau */
+            background-color: #4CAF50; /* dropdown hijau */
           }
 
           .custom-navbar .dropdown-item {
