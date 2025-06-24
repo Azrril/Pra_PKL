@@ -218,6 +218,9 @@ $user = mysqli_fetch_assoc($query);
           <a class="nav-link" href="dashboard.php">Dashboard</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="pesanan.php">Pesanan</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#tentang">Tentang</a>
         </li>
         </li>

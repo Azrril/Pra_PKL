@@ -686,28 +686,29 @@ $total_bayar = ($data['harga_produk'] * $data['Qty']) + $data['harga_pengiriman'
                     Belum ada bukti pembayaran yang diunggah
                 </div>
             <?php endif; ?>
+                <div class="action-buttons">
+                    <?php if (!$data['bukti_pembayaran']): ?>
+                        <button type="button" class="btn-primary-modern btn-modern" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                            <i class="fas fa-upload"></i>
+                            Kirim Bukti Pembayaran
+                        </button>
+                    <?php else: ?>
+                        <a href="dashboard.php" class="btn-success-modern btn-modern">
+                            <i class="fas fa-check-circle"></i>
+                            Selesai
+                        </a>
+                    <?php endif; ?>
+                </div>
         </div>
+        
     </div>
+
 
     <div class="receipt-footer">
         <i class="fas fa-heart" style="color: #FF9800;"></i><br>
         Terima kasih telah melakukan pembayaran!<br>
         Simpan struk ini sebagai bukti transaksi yang valid.
     </div>
-</div>
-
-<div class="action-buttons">
-    <?php if (!$data['bukti_pembayaran']): ?>
-        <button type="button" class="btn-primary-modern btn-modern" data-bs-toggle="modal" data-bs-target="#uploadModal">
-            <i class="fas fa-upload"></i>
-            Kirim Bukti Pembayaran
-        </button>
-    <?php else: ?>
-        <a href="dashboard.php" class="btn-success-modern btn-modern">
-            <i class="fas fa-check-circle"></i>
-            Selesai
-        </a>
-    <?php endif; ?>
 </div>
 
 <!-- Modal -->

@@ -1,5 +1,6 @@
 <?php
-include 'koneksi.php'; 
+session_start();
+include "koneksi.php";
 
 $id_pembayaran = isset($_GET['id_pembayaran']) ? intval($_GET['id_pembayaran']) : 0;
 
@@ -22,15 +23,16 @@ WHERE pembayaran.id_pembayaran = $id_pembayaran
 $result = mysqli_query($koneksi, $query);
 $data = mysqli_fetch_assoc($result);
 $total_bayar = ($data['harga_produk'] * $data['Qty']) + $data['harga_pengiriman'];
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Cetak Struk Pembayaran - #<?= $data['id_pembayaran'] ?></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Cetak Struk Pembayaran - #12345</title>
     <style>
         * {
             margin: 0;
@@ -43,22 +45,101 @@ $total_bayar = ($data['harga_produk'] * $data['Qty']) + $data['harga_pengiriman'
             font-size: 12px;
             line-height: 1.4;
             color: #333;
+            background: #f5f5f5;
+        }
+
+        /* HEADER STYLES - FULL WIDTH */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #4CAF50;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .custom-navbar {
+            background-color: #4CAF50 !important; 
+            padding: 15px 0;
+        }
+
+        .custom-navbar .nav-link,
+        .custom-navbar .navbar-brand {
+            color: white !important;
+            font-weight: 600;
+        }
+
+        .custom-navbar .nav-link:hover,
+        .custom-navbar .nav-link:focus {
+            color: #c8e6c9 !important;
+        }
+
+        .custom-navbar .dropdown-menu {
+            background-color: #4CAF50;
+        }
+
+        .custom-navbar .dropdown-item {
+            color: white;
+        }
+
+        .custom-navbar .dropdown-item:hover {
+            background-color: #81c784;
+            color: black;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        /* MAIN CONTENT CONTAINER */
+        .main-container {
+            margin-top: 80px; /* Space for fixed header */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        /* RECEIPT CONTAINER */
+        .receipt-container {
             background: white;
             max-width: 58mm;
-            margin: 0 auto;
-            padding: 10px;
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
         }
 
         /* PRINT STYLES */
         @media print {
             body {
                 margin: 0;
-                padding: 5mm;
+                padding: 0;
                 font-size: 11px;
+                background: white;
             }
             
+            .main-header,
             .no-print {
                 display: none !important;
+            }
+
+            .main-container {
+                margin-top: 0;
+                padding: 0;
+                min-height: auto;
+            }
+
+            .receipt-container {
+                max-width: none;
+                box-shadow: none;
+                border-radius: 0;
+                margin: 0;
+                padding: 5mm;
             }
             
             .page-break {
@@ -66,7 +147,7 @@ $total_bayar = ($data['harga_produk'] * $data['Qty']) + $data['harga_pengiriman'
             }
         }
 
-        /* HEADER STYLES */
+        /* RECEIPT HEADER */
         .receipt-header {
             text-align: center;
             border-bottom: 2px solid #000;
@@ -229,24 +310,26 @@ $total_bayar = ($data['harga_produk'] * $data['Qty']) + $data['harga_pengiriman'
         /* CONTROL BUTTONS */
         .print-controls {
             position: fixed;
-            top: 10px;
-            right: 10px;
+            top: 90px;
+            right: 20px;
             background: white;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 999;
         }
 
-        .btn {
-            padding: 8px 15px;
+        .btn-custom {
+            padding: 10px 20px;
             margin: 0 5px;
             border: none;
-            border-radius: 3px;
+            border-radius: 5px;
             cursor: pointer;
             font-size: 12px;
             text-decoration: none;
             display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .btn-print {
@@ -259,32 +342,105 @@ $total_bayar = ($data['harga_produk'] * $data['Qty']) + $data['harga_pengiriman'
             color: white;
         }
 
-        .btn:hover {
-            opacity: 0.8;
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         /* RESPONSIVE */
-        @media screen and (max-width: 600px) {
-            body {
+        @media screen and (max-width: 768px) {
+            .main-container {
+                padding: 10px;
+                margin-top: 70px;
+            }
+            
+            .receipt-container {
                 max-width: 100%;
-                padding: 5px;
             }
             
             .print-controls {
                 position: relative;
+                top: auto;
+                right: auto;
                 margin-bottom: 20px;
                 text-align: center;
+                width: 100%;
+            }
+
+            .btn-custom {
+                display: block;
+                margin: 5px 0;
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .custom-navbar .navbar-brand {
+                font-size: 16px;
+            }
+            
+            .navbar-brand img {
+                height: 30px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- FULL WIDTH HEADER -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="img/logo_zari.png" alt="Zari Petshop" width="50" class="me-3">
+      <strong>ZARI PETSHOP</strong>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="dashboard.php">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="pesanan.php">Pesanan</a>
+        </li>
 
-<!-- Print Controls (Hidden when printing) -->
-<div class="print-controls no-print">
-    <button onclick="window.print()" class="btn btn-print">🖨️ Cetak</button>
-    <a href="javascript:window.close()" class="btn btn-back">← Kembali</a>
-</div>
+        <?php
+        if (isset($_SESSION['username'])) {
+          // Sudah login
+          echo '
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="akunDropdown" role="button" data-bs-toggle="dropdown">
+              Akun
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="Profil.php">Profil</a></li>
+              <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
+            </ul>
+          </li>';
+        } else {
+          // Belum login
+          echo '
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+          </li>';
+        }
+        ?>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+        <!-- Print Controls (Hidden when printing) -->
+        <div class="print-controls no-print">
+            <button onclick="window.print()" class="btn-custom btn-print">🖨️ Cetak Struk</button>
+        </div>
 
 <!-- Receipt Content -->
 <div class="receipt-content">
@@ -395,37 +551,46 @@ $total_bayar = ($data['harga_produk'] * $data['Qty']) + $data['harga_pengiriman'
             </div>
         <?php endif; ?>
     </div>
-
-    <!-- Footer -->
-    <div class="receipt-footer">
-        <div>═══════════════════════════</div>
-        <div>TERIMA KASIH</div>
-        <div>Simpan struk ini sebagai bukti</div>
-        <div>transaksi yang sah</div>
-        <div>═══════════════════════════</div>
-        <div style="margin-top: 5px; font-size: 8px;">
-            Dicetak pada: <?= date('d/m/Y H:i:s') ?>
+                <!-- Footer -->
+                <div class="receipt-footer">
+                    <div>═══════════════════════════</div>
+                    <div>TERIMA KASIH</div>
+                    <div>Simpan struk ini sebagai bukti</div>
+                    <div>transaksi yang sah</div>
+                    <div>═══════════════════════════</div>
+                    <div style="margin-top: 5px; font-size: 8px;">
+                        Dicetak pada: 23/06/2025 14:30:45
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-// Auto print when page loads (optional)
-// window.onload = function() {
-//     window.print();
-// }
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Print function
+        function printReceipt() {
+            window.print();
+        }
 
-// Print function
-function printReceipt() {
-    window.print();
-}
+        // Close window after printing (optional)
+        window.onafterprint = function() {
+            // Uncomment if you want to auto close after printing
+            // window.close();
+        }
 
-// Close window after printing
-window.onafterprint = function() {
-    // Uncomment if you want to auto close after printing
-    // window.close();
-}
-</script>
-
+        // Responsive navbar handling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle navbar collapse on small screens
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.addEventListener('click', function() {
+                    navbarCollapse.classList.toggle('show');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

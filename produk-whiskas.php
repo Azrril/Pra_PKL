@@ -1,3 +1,8 @@
+<?php
+session_start();
+include"koneksi.php";
+
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -98,7 +103,7 @@
           }
 
           .custom-navbar .dropdown-menu {
-            background-color: #4CAF50; /* dropdown juga hijau */
+            background-color: #4CAF50; /* dropdown hijau */
           }
 
           .custom-navbar .dropdown-item {
